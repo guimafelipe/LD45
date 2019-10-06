@@ -1,17 +1,16 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Jeremias.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Floor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/Inocente.gd" type="Script" id=3]
-[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://Art/Viloes_desenho/bola_vilao1/primeiroVilon.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/FacaPickable.gd" type="Script" id=5]
+[ext_resource path="res://Art/objetos/justKnife.png" type="Texture" id=6]
 
-
-
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 32, 32 )
+radius = 36.215
 
 [sub_resource type="RectangleShape2D" id=2]
 
@@ -28,7 +27,7 @@ position = Vector2( 107.391, 446.139 )
 
 [node name="Inocente" type="KinematicBody2D" parent="." index="2"]
 
-position = Vector2( 864, 448 )
+position = Vector2( 886.053, 436.239 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -37,12 +36,13 @@ script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="Inocente" index="0"]
 
-modulate = Color( 0, 1, 0.0625, 1 )
+scale = Vector2( 0.12, 0.12 )
 texture = ExtResource( 4 )
-_sections_unfolded = [ "Visibility" ]
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Inocente" index="1"]
 
+position = Vector2( 15.437, -7.35089 )
 shape = SubResource( 1 )
 
 [node name="FacaPickable" type="Area2D" parent="." index="3"]
@@ -57,14 +57,12 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 5 )
 _sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="FacaPickable" index="0"]
 
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 4 )
+position = Vector2( 2.9404, -15.437 )
+scale = Vector2( 0.12, 0.12 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FacaPickable" index="1"]

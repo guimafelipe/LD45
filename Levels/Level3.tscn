@@ -5,12 +5,12 @@
 [ext_resource path="res://Jeremias.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Wall.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/Bazookeiro.gd" type="Script" id=5]
-[ext_resource path="res://icon.png" type="Texture" id=6]
+[ext_resource path="res://Art/Viloes_desenho/triangulo_vilao4/fourthVillao.png" type="Texture" id=6]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="ConvexPolygonShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 32, 32 )
+points = PoolVector2Array( 0, -10, 8.66025, 5, -8.66025, 5 )
 
 [node name="Level3" type="Node" index="0"]
 
@@ -48,24 +48,32 @@ scale = Vector2( 1, 0.5 )
 
 [node name="Bazookeiro" type="KinematicBody2D" parent="." index="3"]
 
-position = Vector2( 64, 224 )
+position = Vector2( 116.815, 213.437 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="Bazookeiro" index="0"]
 
+scale = Vector2( 0.12, 0.12 )
 texture = ExtResource( 6 )
+flip_h = true
+_sections_unfolded = [ "Offset", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bazookeiro" index="1"]
 
+position = Vector2( -17.1463, 16.1966 )
+scale = Vector2( 3.98219, 3.96114 )
 shape = SubResource( 1 )
 
-[node name="BulletSpawner" type="Node2D" parent="Bazookeiro" index="2"]
+[node name="BulletSpawner" type="Position2D" parent="Bazookeiro" index="2"]
 
-position = Vector2( 57.27, -22.975 )
+position = Vector2( 62.9917, -44.1011 )
 
 [node name="Timer" type="Timer" parent="Bazookeiro" index="3"]
 

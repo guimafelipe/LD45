@@ -81,16 +81,16 @@ func shoot():
 func flip_gun(to_left):
 	if(to_left):
 		if $Faca.visible :
-			if $Faca.transform.x > 0:
-				$Faca.transform.x *= -1
+			if $Faca.position.x > 0:
+				$Faca.position.x *= -1
 		if $Pistola.visible:
 			$Pistola.flipped = true
 		if $Metralhadora.visible:
 			$Metralhadora.flipped = true
 	else:
-		if $Faca.visible :
-			if $Faca.transform.x < 0:
-				$Faca.transform.x *= -1
+		if $Faca.visible:
+			if $Faca.position.x < 0:
+				$Faca.position.x *= -1
 		if $Pistola.visible:
 			$Pistola.flipped = false
 		if $Metralhadora.visible:

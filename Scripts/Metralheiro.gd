@@ -2,9 +2,9 @@ extends KinematicBody2D
 
 var BulletClass = preload("res://Bullet.tscn")
 
-const COOLDOWN = 1.5
+const COOLDOWN = 2.5
 const N_BULLETS_RAJADA = 3
-const CD_RAJADA = 0.5
+const CD_RAJADA = 0.08
 
 var timer
 var timer_rajada

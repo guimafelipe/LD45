@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Level1.gd" type="Script" id=1]
 [ext_resource path="res://Jeremias.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Floor.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/Pistoleiro.gd" type="Script" id=4]
-[ext_resource path="res://icon.png" type="Texture" id=5]
-[ext_resource path="res://Bullet.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Art/Viloes_desenho/estrela_vilao2/secondVillao.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -24,7 +23,7 @@ position = Vector2( 167.313, 421.052 )
 
 [node name="Pistoleiro" type="KinematicBody2D" parent="." index="2"]
 
-position = Vector2( 896, 448 )
+position = Vector2( 917.052, 432.509 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -33,7 +32,10 @@ script = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="Pistoleiro" index="0"]
 
+position = Vector2( 0.607725, 0.494333 )
+scale = Vector2( 0.12, 0.12 )
 texture = ExtResource( 5 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pistoleiro" index="1"]
 
@@ -46,14 +48,10 @@ wait_time = 1.5
 one_shot = false
 autostart = true
 
-[node name="BulletSpawner" type="Node2D" parent="Pistoleiro" index="3"]
+[node name="BulletSpawner" type="Position2D" parent="Pistoleiro" index="3"]
 
-position = Vector2( -38, 0 )
+position = Vector2( -53.4913, -8.34146 )
 _sections_unfolded = [ "Transform" ]
-
-[node name="Bullet" parent="." index="3" instance=ExtResource( 6 )]
-
-position = Vector2( 765.651, 149.585 )
 
 [connection signal="timeout" from="Pistoleiro/Timer" to="Pistoleiro" method="_on_Timer_timeout"]
 

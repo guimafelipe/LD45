@@ -16,6 +16,8 @@ func set_origin_is_player():
 func _on_Bullet_body_entered(body):
 	if body.has_method("hit"):
 		body.hit()
+	if body.has_method("take_damage"):
+		body.take_damage()
 	queue_free()
 
 

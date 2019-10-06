@@ -4,7 +4,7 @@
 [ext_resource path="res://Floor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Jeremias.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/Metralheiro.gd" type="Script" id=4]
-[ext_resource path="res://icon.png" type="Texture" id=5]
+[ext_resource path="res://Art/Viloes_desenho/hexagono_vilao3/thirdBoss.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -23,28 +23,28 @@ position = Vector2( 101.939, 438.781 )
 
 [node name="Metralheiro" type="KinematicBody2D" parent="." index="2"]
 
-position = Vector2( 864, 448 )
+position = Vector2( 888.435, 433.105 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="Metralheiro" index="0"]
 
+scale = Vector2( 0.12, 0.12 )
 texture = ExtResource( 5 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Metralheiro" index="1"]
 
+position = Vector2( 11.4031, -2.44354 )
 shape = SubResource( 1 )
 
 [node name="BulletSpawner" type="Position2D" parent="Metralheiro" index="2"]
 
-position = Vector2( -38, 0 )
+position = Vector2( -68.1367, -18.7336 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Timer" type="Timer" parent="Metralheiro/BulletSpawner" index="0"]

@@ -10,7 +10,7 @@ func _ready():
 func shoot():
 	var bullet = BulletClass.instance()
 	bullet.set_position($BulletSpawner.position)
-	bullet.set_dir(Vector2(1, -1).normalized())
+	bullet.set_dir(Vector2(1, 0).normalized())
 	add_child(bullet)
 
 func _on_Timer_timeout():
