@@ -1,0 +1,23 @@
+1- desenhar um quadrado
+
+2- desenhar movimento das pernas para
+
+	2.1 - IDLE
+	2.2 - Direita avança
+	2.3 - Esquerda avança
+	2.4 - jump
+
+3- desenhar Mão acoplada com as seguintes armas
+
+	3.1 - mão com Faca
+	3.2 - mão com pistola
+	3.3 - mão com metranca
+	3.4 - mão com bazuca
+
+
+Aqui eu fiz separado os desenhos, se quiser rotacionar o braço, acopla-lo sempre no corpo
+
+Se precisar fazer todas as iterações de movimentos com as 4 posicoes, por favor avisar
+
+
+

@@ -25,5 +25,8 @@ func shoot():
 func _on_Timer_timeout():
 	can_shoot = true
 
-func flip(to_left):
-	
+func _process(delta):
+	if flipped:
+		$Sprite.flip_v = true
+	else:
+		$Sprite.flip_v = false

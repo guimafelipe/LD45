@@ -52,3 +52,9 @@ func start_rajada():
 
 func _on_TimerRajada_timeout():
 	start_rajada()
+
+func _process(delta):
+	if flipped:
+		$Sprite.flip_v = true
+	else:
+		$Sprite.flip_v = false

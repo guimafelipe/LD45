@@ -22,7 +22,14 @@ func _physics_process(delta):
 		is_flipped = true
 	else:
 		motion.x = 0
-
+	
+	if is_flipped:
+		$Sprite.flip_h = true
+	else:
+		$Sprite.flip_h = false
+	
+	flip_gun(is_flipped)
+	
 	if Input.is_action_pressed("w"):
 		gun_rotation -= delta*GUN_ROTATION_SPEED
 	elif Input.is_action_pressed("s"):
@@ -77,6 +84,14 @@ func flip_gun(to_left):
 			if $Faca.transform.x > 0:
 				$Faca.transform.x *= -1
 		if $Pistola.visible:
-			$Pistola.flip(true)
+			$Pistola.flipped = true
 		if $Metralhadora.visible:
-			$Metralhadora.flip(true)
+			$Metralhadora.flipped = true
+	else:
+		if $Faca.visible :
+			if $Faca.transform.x < 0:
+				$Faca.transform.x *= -1
+		if $Pistola.visible:
+			$Pistola.flipped = false
+		if $Metralhadora.visible:
+			$Metralhadora.flipped = false
