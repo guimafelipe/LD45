@@ -1,0 +1,79 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/Level3.gd" type="Script" id=1]
+[ext_resource path="res://Floor.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Jeremias.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Wall.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Bazookeiro.gd" type="Script" id=5]
+[ext_resource path="res://icon.png" type="Texture" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32 )
+
+[node name="Level3" type="Node" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="Floor" parent="." index="0" instance=ExtResource( 2 )]
+
+[node name="Jeremias" parent="." index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 859.568, 440.244 )
+
+[node name="Platform" type="Node2D" parent="." index="2"]
+
+editor/display_folded = true
+position = Vector2( 64, 288 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Wall" parent="Platform" index="0" instance=ExtResource( 4 )]
+
+position = Vector2( -64, 0 )
+scale = Vector2( 1, 0.5 )
+
+[node name="Wall3" parent="Platform" index="1" instance=ExtResource( 4 )]
+
+position = Vector2( 0, 0 )
+scale = Vector2( 1, 0.5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Wall2" parent="Platform" index="2" instance=ExtResource( 4 )]
+
+position = Vector2( 64, 0 )
+scale = Vector2( 1, 0.5 )
+
+[node name="Bazookeiro" type="KinematicBody2D" parent="." index="3"]
+
+position = Vector2( 64, 224 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Bazookeiro" index="0"]
+
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bazookeiro" index="1"]
+
+shape = SubResource( 1 )
+
+[node name="BulletSpawner" type="Node2D" parent="Bazookeiro" index="2"]
+
+position = Vector2( 57.27, -22.975 )
+
+[node name="Timer" type="Timer" parent="Bazookeiro" index="3"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = true
+
+[connection signal="timeout" from="Bazookeiro/Timer" to="Bazookeiro" method="_on_Timer_timeout"]
+
+

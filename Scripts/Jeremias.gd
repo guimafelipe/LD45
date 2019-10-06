@@ -42,10 +42,12 @@ func hit():
 func enable_faca():
 	$Faca.visible = true
 	$Faca.get_node("CollisionShape2D").disabled = false
-	pass
 
 func enable_pistola():
-	pass
+	$Pistola.visible = true
+
+func enable_metralhadora():
+	$Metralhadora.visible = true
 
 func _on_Faca_body_entered(body):
 	if body.has_method("take_damage"):
@@ -54,8 +56,11 @@ func _on_Faca_body_entered(body):
 func set_gun_rotation():
 	if $Pistola.visible:
 		$Pistola.set_rotation(gun_rotation)
+	if $Metralhadora.visible:
+		$Metralhadora.set_rotation(gun_rotation)
 
 func shoot():
 	if $Pistola.visible:
 		$Pistola.shoot()
-	pass
+	if $Metralhadora.visible:
+		$Metralhadora.shoot()
