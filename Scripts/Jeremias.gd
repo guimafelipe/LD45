@@ -83,6 +83,7 @@ func flip_gun(to_left):
 		if $Faca.visible :
 			if $Faca.position.x > 0:
 				$Faca.position.x *= -1
+				$Faca/Sprite.flip_h = true
 		if $Pistola.visible:
 			$Pistola.flipped = true
 		if $Metralhadora.visible:
@@ -91,6 +92,7 @@ func flip_gun(to_left):
 		if $Faca.visible:
 			if $Faca.position.x < 0:
 				$Faca.position.x *= -1
+				$Faca/Sprite.flip_h = false
 		if $Pistola.visible:
 			$Pistola.flipped = false
 		if $Metralhadora.visible:

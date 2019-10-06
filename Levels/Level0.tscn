@@ -17,7 +17,7 @@ radius = 36.215
 custom_solver_bias = 0.0
 extents = Vector2( 15.665, 15.1992 )
 
-[node name="Level0" type="Node" index="0"]
+[node name="Level0" type="Node"]
 
 [node name="Jeremias" parent="." index="0" instance=ExtResource( 1 )]
 
@@ -57,6 +57,9 @@ audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 5 )
 _sections_unfolded = [ "Transform" ]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="FacaPickable" index="0"]
 
