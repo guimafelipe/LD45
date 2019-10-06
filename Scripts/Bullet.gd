@@ -10,6 +10,8 @@ func set_dir(dir):
 func _physics_process(delta):
 	var collision = move_and_collide(velocity*delta)
 	if collision:
+		if(collision.collider.has_method("hit")):
+			collision.collider.hit()
 		queue_free()
 
 func set_origin_is_player():

@@ -1,0 +1,88 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/Jeremias.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Pistola.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
+
+[node name="Jeremias" type="KinematicBody2D"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+shape = SubResource( 1 )
+
+[node name="Faca" type="Area2D" parent="." index="2"]
+
+editor/display_folded = true
+visible = false
+position = Vector2( 41.9116, -1.19746 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Faca" index="0"]
+
+shape = SubResource( 2 )
+disabled = true
+
+[node name="Sprite" type="Sprite" parent="Faca" index="1"]
+
+scale = Vector2( 0.319874, 0.33027 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Pistola" type="Node2D" parent="." index="3"]
+
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="Pistola" index="0"]
+
+modulate = Color( 0.708723, 0.0671387, 0.78125, 1 )
+position = Vector2( 1.19748, -0.598718 )
+scale = Vector2( 1, 0.327435 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Visibility" ]
+
+[node name="BulletSpawner" type="Node2D" parent="Pistola" index="1"]
+
+position = Vector2( 59.8738, 1.19748 )
+
+[node name="Timer" type="Timer" parent="Pistola" index="2"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[connection signal="body_entered" from="Faca" to="." method="_on_Faca_body_entered"]
+
+[connection signal="timeout" from="Pistola/Timer" to="Pistola" method="_on_Timer_timeout"]
+
+
