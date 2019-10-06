@@ -20,7 +20,7 @@ script = ExtResource( 1 )
 
 [node name="Jeremias" parent="." index="1" instance=ExtResource( 3 )]
 
-position = Vector2( 859.568, 440.244 )
+position = Vector2( 61.5385, 437.788 )
 
 [node name="Platform" type="Node2D" parent="." index="2"]
 

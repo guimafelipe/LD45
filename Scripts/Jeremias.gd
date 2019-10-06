@@ -17,10 +17,16 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_right"):
 		motion.x = SPEED
 		is_flipped = false
+		if is_on_floor():
+			$Sprite.play("walking")
 	elif Input.is_action_pressed("ui_left"):
 		motion.x = -SPEED
 		is_flipped = true
+		if is_on_floor():
+			$Sprite.play("walking")
 	else:
+		if is_on_floor():
+			$Sprite.play("idle")
 		motion.x = 0
 	
 	if is_flipped:
@@ -38,6 +44,8 @@ func _physics_process(delta):
 	if is_on_floor():
 		if Input.is_action_just_pressed("jump"):
 			motion.y = JUMP_HEIGHT
+	else:
+		$Sprite.play("jump")
 	
 	if Input.is_action_just_pressed("shoot"):
 		shoot()
@@ -66,7 +74,7 @@ func _on_Faca_body_entered(body):
 func set_gun_rotation():
 	var actual_gun_rotation = gun_rotation
 	if is_flipped:
-		actual_gun_rotation = PI-gun_rotation
+		actual_gun_rotation = -gun_rotation
 	if $Pistola.visible:
 		$Pistola.set_rotation(actual_gun_rotation)
 	if $Metralhadora.visible:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scripts/Jeremias.gd" type="Script" id=1]
 [ext_resource path="res://Art/Protagonista_quadrado_desenho/conjuntoFaca.png" type="Texture" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://Scripts/Metralhadora.gd" type="Script" id=5]
 [ext_resource path="res://Art/Protagonista_quadrado_desenho/conjuntoMetranca.png" type="Texture" id=6]
 [ext_resource path="res://Art/Protagonista_quadrado_desenho/quad_IDLE.png" type="Texture" id=7]
+[ext_resource path="res://Art/Protagonista_quadrado_desenho/quad_PeDir.png" type="Texture" id=8]
+[ext_resource path="res://Art/Protagonista_quadrado_desenho/quad_PeEsq.png" type="Texture" id=9]
+[ext_resource path="res://Art/Protagonista_quadrado_desenho/quad_Jump.png" type="Texture" id=10]
 
 [sub_resource type="RectangleShape2D" id=2]
 
@@ -18,7 +21,17 @@ extents = Vector2( 10, 10 )
 animations = [ {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "default",
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "walking",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "jump",
 "speed": 5.0
 } ]
 
@@ -92,22 +105,21 @@ autostart = false
 [node name="Metralhadora" type="Node2D" parent="." index="2"]
 
 editor/display_folded = true
+visible = false
 script = ExtResource( 5 )
 _sections_unfolded = [ "Transform" ]
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="Metralhadora" index="0"]
 
-position = Vector2( 51.7654, -14.1872 )
+position = Vector2( 52.7361, -10.6283 )
 scale = Vector2( 0.12, 0.12 )
 texture = ExtResource( 6 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="BulletSpawner" type="Position2D" parent="Metralhadora" index="1"]
 
-position = Vector2( 73.3345, -24.5403 )
+position = Vector2( 73.658, -21.3532 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Timer" type="Timer" parent="Metralhadora" index="2"]
 
@@ -127,7 +139,7 @@ autostart = false
 
 scale = Vector2( 0.12, 0.12 )
 frames = SubResource( 3 )
-animation = "default"
+animation = "idle"
 _sections_unfolded = [ "Offset", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4"]

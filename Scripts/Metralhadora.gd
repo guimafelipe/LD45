@@ -4,7 +4,7 @@ var BulletClass = preload("res://Bullet.tscn")
 
 const COOLDOWN = 1.5
 const N_BULLETS_RAJADA = 3
-const CD_RAJADA = 0.5
+const CD_RAJADA = 0.1
 
 var timer
 var timer_rajada
@@ -29,7 +29,10 @@ func shoot():
 func shoot_bullet():
 	var bullet = BulletClass.instance()
 	bullet.set_position($BulletSpawner.global_position)
-	bullet.set_dir(Vector2(1, 0).rotated(rotation))
+	if flipped:
+		bullet.set_dir(Vector2(1, 0).rotated(PI+rotation))
+	else:
+		bullet.set_dir(Vector2(1, 0).rotated(rotation))
 	get_node("../..").add_child(bullet)
 	#add_child(bullet)
 
@@ -55,6 +58,12 @@ func _on_TimerRajada_timeout():
 
 func _process(delta):
 	if flipped:
-		$Sprite.flip_v = true
+		$Sprite.flip_h = true
+		if $Sprite.position.x > 0:
+			$Sprite.position.x *= -1
+			$BulletSpawner.position.x *= -1
 	else:
-		$Sprite.flip_v = false
+		$Sprite.flip_h = false
+		if $Sprite.position.x < 0:
+			$Sprite.position.x *= -1
+			$BulletSpawner.position.x *= -1
