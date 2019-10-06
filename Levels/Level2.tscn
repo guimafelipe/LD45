@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Level2.gd" type="Script" id=1]
 [ext_resource path="res://Floor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Jeremias.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/Metralheiro.gd" type="Script" id=4]
 [ext_resource path="res://Art/Viloes_desenho/hexagono_vilao3/thirdBoss.png" type="Texture" id=5]
+[ext_resource path="res://Fade.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -60,6 +61,10 @@ process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = false
+
+[node name="Fade" parent="." index="3" instance=ExtResource( 6 )]
+
+stretch_mode = 0
 
 [connection signal="timeout" from="Metralheiro/BulletSpawner/Timer" to="Metralheiro" method="_on_Timer_timeout"]
 

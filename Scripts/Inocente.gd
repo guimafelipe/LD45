@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal morri
+
 func take_damage():
-	# fazer animação aqui
+	emit_signal("morri")
 	queue_free()

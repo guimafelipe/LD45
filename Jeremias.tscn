@@ -11,12 +11,12 @@
 [ext_resource path="res://Art/Protagonista_quadrado_desenho/quad_PeEsq.png" type="Texture" id=9]
 [ext_resource path="res://Art/Protagonista_quadrado_desenho/quad_Jump.png" type="Texture" id=10]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 10, 10 )
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=2]
 
 animations = [ {
 "frames": [ ExtResource( 7 ) ],
@@ -35,7 +35,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CapsuleShape2D" id=4]
+[sub_resource type="CapsuleShape2D" id=3]
 
 custom_solver_bias = 0.0
 radius = 33.7972
@@ -69,7 +69,7 @@ __meta__ = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Faca" index="0"]
 
 position = Vector2( 16.1767, -12.2943 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 disabled = true
 
 [node name="Sprite" type="Sprite" parent="Faca" index="1"]
@@ -138,14 +138,14 @@ autostart = false
 [node name="Sprite" type="AnimatedSprite" parent="." index="3"]
 
 scale = Vector2( 0.12, 0.12 )
-frames = SubResource( 3 )
+frames = SubResource( 2 )
 animation = "idle"
 _sections_unfolded = [ "Offset", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4"]
 
 visible = false
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [connection signal="body_entered" from="Faca" to="." method="_on_Faca_body_entered"]
 

@@ -11,6 +11,8 @@ var timer_rajada
 
 var bullets_shot = 0
 
+signal morri
+
 func _ready():
 	timer = $BulletSpawner.get_node("Timer")
 	timer_rajada = $BulletSpawner.get_node("TimerRajada")
@@ -21,7 +23,7 @@ func _ready():
 	start_fight()
 
 func start_fight():
-	start_rajada()
+	timer.start()
 
 func shoot():
 	var bullet = BulletClass.instance()
@@ -30,6 +32,7 @@ func shoot():
 	add_child(bullet)
 
 func take_damage():
+	emit_signal("morri")
 	queue_free()
 
 func _on_Timer_timeout():

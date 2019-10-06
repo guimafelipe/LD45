@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Level1.gd" type="Script" id=1]
 [ext_resource path="res://Jeremias.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Floor.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/Pistoleiro.gd" type="Script" id=4]
 [ext_resource path="res://Art/Viloes_desenho/estrela_vilao2/secondVillao.png" type="Texture" id=5]
+[ext_resource path="res://Fade.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -46,12 +47,16 @@ shape = SubResource( 1 )
 process_mode = 1
 wait_time = 1.5
 one_shot = false
-autostart = true
+autostart = false
 
 [node name="BulletSpawner" type="Position2D" parent="Pistoleiro" index="3"]
 
 position = Vector2( -53.4913, -8.34146 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="Fade" parent="." index="3" instance=ExtResource( 6 )]
+
+stretch_mode = 0
 
 [connection signal="timeout" from="Pistoleiro/Timer" to="Pistoleiro" method="_on_Timer_timeout"]
 

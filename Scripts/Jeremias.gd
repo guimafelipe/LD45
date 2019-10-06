@@ -11,15 +11,19 @@ var gun_rotation = 0
 
 var is_flipped = false
 
+var can_move = false
+
+signal morri
+
 func _physics_process(delta):
 	motion.y += GRAVITY
 	
-	if Input.is_action_pressed("ui_right"):
+	if can_move and Input.is_action_pressed("ui_right"):
 		motion.x = SPEED
 		is_flipped = false
 		if is_on_floor():
 			$Sprite.play("walking")
-	elif Input.is_action_pressed("ui_left"):
+	elif can_move and Input.is_action_pressed("ui_left"):
 		motion.x = -SPEED
 		is_flipped = true
 		if is_on_floor():
@@ -36,13 +40,13 @@ func _physics_process(delta):
 	
 	flip_gun(is_flipped)
 	
-	if Input.is_action_pressed("w"):
+	if can_move and Input.is_action_pressed("w"):
 		gun_rotation -= delta*GUN_ROTATION_SPEED
-	elif Input.is_action_pressed("s"):
+	elif can_move and Input.is_action_pressed("s"):
 		gun_rotation += delta*GUN_ROTATION_SPEED
 	
 	if is_on_floor():
-		if Input.is_action_just_pressed("jump"):
+		if can_move and Input.is_action_just_pressed("jump"):
 			motion.y = JUMP_HEIGHT
 	else:
 		$Sprite.play("jump")
@@ -55,7 +59,8 @@ func _physics_process(delta):
 	set_gun_rotation()
 
 func hit():
-	print("morri")
+	emit_signal("morri")
+	queue_free()
 
 func enable_faca():
 	$Faca.visible = true

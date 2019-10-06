@@ -4,6 +4,8 @@ var BulletClass = preload("res://Missil.tscn")
 
 const COOLDOWN = 3
 
+signal morri
+
 func _ready():
 	$Timer.set_wait_time(COOLDOWN)
 
@@ -17,4 +19,5 @@ func _on_Timer_timeout():
 	shoot()
 
 func take_damage():
+	emit_signal("morri")
 	queue_free()

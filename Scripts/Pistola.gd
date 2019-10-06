@@ -24,7 +24,6 @@ func shoot():
 	can_shoot = false
 	$Timer.start()
 
-
 func _on_Timer_timeout():
 	can_shoot = true
 

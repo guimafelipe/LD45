@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Level3.gd" type="Script" id=1]
 [ext_resource path="res://Floor.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Wall.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/Bazookeiro.gd" type="Script" id=5]
 [ext_resource path="res://Art/Viloes_desenho/triangulo_vilao4/fourthVillao.png" type="Texture" id=6]
+[ext_resource path="res://Fade.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 
@@ -81,6 +82,10 @@ process_mode = 1
 wait_time = 1.0
 one_shot = false
 autostart = true
+
+[node name="Fade" parent="." index="4" instance=ExtResource( 7 )]
+
+stretch_mode = 0
 
 [connection signal="timeout" from="Bazookeiro/Timer" to="Bazookeiro" method="_on_Timer_timeout"]
 

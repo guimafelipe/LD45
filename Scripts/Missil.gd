@@ -20,7 +20,7 @@ func update_dir(delta):
 		return
 	var direction = player.global_position - global_position
 	var angle = velocity.angle_to(direction)
-	if(angle > 0):
+	if angle > 0:
 		velocity = velocity.rotated(ROTATION_SPEED*delta)
 	elif angle < 0:
 		velocity = velocity.rotated(-ROTATION_SPEED*delta)
