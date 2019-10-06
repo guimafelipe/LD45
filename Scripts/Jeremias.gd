@@ -9,14 +9,17 @@ const JUMP_HEIGHT = -500
 const GUN_ROTATION_SPEED = 0.5
 var gun_rotation = 0
 
+var is_flipped = false
 
 func _physics_process(delta):
 	motion.y += GRAVITY
 	
 	if Input.is_action_pressed("ui_right"):
 		motion.x = SPEED
+		is_flipped = false
 	elif Input.is_action_pressed("ui_left"):
 		motion.x = -SPEED
+		is_flipped = true
 	else:
 		motion.x = 0
 
@@ -54,13 +57,26 @@ func _on_Faca_body_entered(body):
 		body.take_damage()
 
 func set_gun_rotation():
+	var actual_gun_rotation = gun_rotation
+	if is_flipped:
+		actual_gun_rotation = PI-gun_rotation
 	if $Pistola.visible:
-		$Pistola.set_rotation(gun_rotation)
+		$Pistola.set_rotation(actual_gun_rotation)
 	if $Metralhadora.visible:
-		$Metralhadora.set_rotation(gun_rotation)
+		$Metralhadora.set_rotation(actual_gun_rotation)
 
 func shoot():
 	if $Pistola.visible:
 		$Pistola.shoot()
 	if $Metralhadora.visible:
 		$Metralhadora.shoot()
+
+func flip_gun(to_left):
+	if(to_left):
+		if $Faca.visible :
+			if $Faca.transform.x > 0:
+				$Faca.transform.x *= -1
+		if $Pistola.visible:
+			$Pistola.flip(true)
+		if $Metralhadora.visible:
+			$Metralhadora.flip(true)

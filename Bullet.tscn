@@ -8,12 +8,15 @@
 custom_solver_bias = 0.0
 radius = 6.31411
 
-[node name="Bullet" type="KinematicBody2D"]
+[node name="Bullet" type="Area2D"]
 
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 
@@ -27,5 +30,9 @@ position = Vector2( -1.90735e-05, -1.14441e-05 )
 scale = Vector2( 0.01, 0.01 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
+
+[connection signal="area_entered" from="." to="." method="_on_Bullet_area_entered"]
+
+[connection signal="body_entered" from="." to="." method="_on_Bullet_body_entered"]
 
 

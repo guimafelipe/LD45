@@ -42,7 +42,7 @@ texture = ExtResource( 5 )
 
 shape = SubResource( 1 )
 
-[node name="BulletSpawner" type="Node2D" parent="Metralheiro" index="2"]
+[node name="BulletSpawner" type="Position2D" parent="Metralheiro" index="2"]
 
 position = Vector2( -38, 0 )
 _sections_unfolded = [ "Transform" ]

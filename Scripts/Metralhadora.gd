@@ -12,6 +12,8 @@ var timer_rajada
 var bullets_shot = 0
 var can_shoot = true
 
+var flipped = false
+
 func _ready():
 	timer = $Timer
 	timer_rajada = $TimerRajada
@@ -26,9 +28,10 @@ func shoot():
 
 func shoot_bullet():
 	var bullet = BulletClass.instance()
-	bullet.set_position($BulletSpawner.position)
+	bullet.set_position($BulletSpawner.global_position)
 	bullet.set_dir(Vector2(1, 0).rotated(rotation))
-	add_child(bullet)
+	get_node("../..").add_child(bullet)
+	#add_child(bullet)
 
 func take_damage():
 	queue_free()

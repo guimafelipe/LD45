@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Area2D
 
 const SPEED = 700
 var velocity = Vector2()
@@ -8,11 +8,17 @@ func set_dir(dir):
 	velocity = dir*SPEED
 
 func _physics_process(delta):
-	var collision = move_and_collide(velocity*delta)
-	if collision:
-		if(collision.collider.has_method("hit")):
-			collision.collider.hit()
-		queue_free()
+	translate(velocity*delta)
 
 func set_origin_is_player():
 	origin_is_player = true
+
+func _on_Bullet_body_entered(body):
+	if body.has_method("hit"):
+		body.hit()
+	queue_free()
+
+
+func _on_Bullet_area_entered(area):
+	if area.name == "Bullet" or area.name == "Missil":
+		queue_free()

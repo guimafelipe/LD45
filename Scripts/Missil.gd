@@ -1,4 +1,4 @@
-extends KinematicBody2D
+extends Area2D
 
 const SPEED = 180
 var velocity = Vector2()
@@ -27,12 +27,22 @@ func update_dir(delta):
 
 func _physics_process(delta):
 	update_dir(delta)
-	var collision = move_and_collide(velocity*delta)
-	if collision:
-		explode()
+	translate(velocity*delta)
 
 func explode():
+	for obj in $ExplosionArea.get_overlapping_bodies():
+		if obj.has_method("hit"):
+			obj.hit()
+	# tocar animação de explosão
 	queue_free()
 
 func _on_LifeTimer_timeout():
+	explode()
+
+func _on_Missil_area_entered(area):
+	if area.name == "Bullet":
+		explode()
+
+
+func _on_Missil_body_entered(body):
 	explode()
