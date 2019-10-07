@@ -2,7 +2,7 @@ extends Node
 
 func _ready():
 	$Fade.fade_in()
-	$Jeremias.enable_metralhadora()
+#	$Jeremias.enable_metralhadora()
 	$Fade/Timer.connect("timeout", self, "comecar")
 	$Bazookeiro/Timer.start()
 

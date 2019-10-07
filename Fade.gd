@@ -2,7 +2,7 @@ extends TextureRect
 
 const FADE_TIME = 2
 var target = 1
-var a = 0
+var a = 1
 
 func fade_in():
 	a = 1

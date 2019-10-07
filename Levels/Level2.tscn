@@ -2,24 +2,24 @@
 
 [ext_resource path="res://Scripts/Level2.gd" type="Script" id=1]
 [ext_resource path="res://Art/cenarios/cenario3/cinzaEscuro.png" type="Texture" id=2]
-[ext_resource path="res://Jeremias.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scripts/Metralheiro.gd" type="Script" id=4]
-[ext_resource path="res://Art/Viloes_desenho/hexagono_vilao3/thirdBoss.png" type="Texture" id=5]
-[ext_resource path="res://Art/cenarios/cenario3/blocoCinza.png" type="Texture" id=6]
+[ext_resource path="res://Art/cenarios/cenario3/blocoCinza.png" type="Texture" id=3]
+[ext_resource path="res://Jeremias.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Metralheiro.gd" type="Script" id=5]
+[ext_resource path="res://Art/Viloes_desenho/hexagono_vilao3/thirdBoss.png" type="Texture" id=6]
 [ext_resource path="res://PickableMetralha.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Fade.tscn" type="PackedScene" id=8]
-
-[sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
-extents = Vector2( 31.867, 32 )
 
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 32, 32 )
 
-[node name="Level2" type="Node" index="0"]
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 31.867, 32 )
+
+[node name="Level2" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -29,51 +29,7 @@ position = Vector2( 505.347, 298.982 )
 scale = Vector2( 1.30643, 1.03697 )
 texture = ExtResource( 2 )
 
-[node name="Jeremias" parent="." index="1" instance=ExtResource( 3 )]
-
-position = Vector2( 96, 128 )
-
-[node name="Metralheiro" type="KinematicBody2D" parent="." index="2"]
-
-position = Vector2( 888.435, 433.105 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-collision/safe_margin = 0.08
-script = ExtResource( 4 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Sprite" type="Sprite" parent="Metralheiro" index="0"]
-
-scale = Vector2( 0.12, 0.12 )
-texture = ExtResource( 5 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Metralheiro" index="1"]
-
-position = Vector2( 11.4031, -2.44354 )
-shape = SubResource( 1 )
-
-[node name="BulletSpawner" type="Position2D" parent="Metralheiro" index="2"]
-
-position = Vector2( -68.1367, -18.7336 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Timer" type="Timer" parent="Metralheiro/BulletSpawner" index="0"]
-
-process_mode = 1
-wait_time = 1.0
-one_shot = true
-autostart = false
-
-[node name="TimerRajada" type="Timer" parent="Metralheiro/BulletSpawner" index="1"]
-
-process_mode = 1
-wait_time = 1.0
-one_shot = true
-autostart = false
-
-[node name="Ambient" type="Node" parent="." index="3"]
+[node name="Ambient" type="Node" parent="." index="1"]
 
 editor/display_folded = true
 
@@ -96,7 +52,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall" index="1"]
@@ -122,7 +78,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall2" index="1"]
@@ -148,7 +104,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall3" index="1"]
@@ -174,7 +130,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall4" index="1"]
@@ -200,7 +156,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall5" index="1"]
@@ -226,7 +182,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall6" index="1"]
@@ -252,7 +208,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall7" index="1"]
@@ -278,7 +234,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall8" index="1"]
@@ -304,7 +260,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall9" index="1"]
@@ -330,7 +286,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall10" index="1"]
@@ -356,7 +312,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall11" index="1"]
@@ -382,7 +338,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall12" index="1"]
@@ -408,7 +364,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall13" index="1"]
@@ -434,7 +390,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall14" index="1"]
@@ -460,7 +416,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall15" index="1"]
@@ -486,7 +442,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall16" index="1"]
@@ -512,7 +468,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall17" index="1"]
@@ -538,7 +494,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall18" index="1"]
@@ -564,7 +520,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall19" index="1"]
@@ -590,7 +546,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall20" index="1"]
@@ -616,7 +572,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall21" index="1"]
@@ -642,7 +598,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall22" index="1"]
@@ -668,7 +624,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall23" index="1"]
@@ -694,7 +650,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall24" index="1"]
@@ -720,7 +676,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall25" index="1"]
@@ -746,7 +702,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall26" index="1"]
@@ -772,7 +728,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall27" index="1"]
@@ -798,7 +754,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall28" index="1"]
@@ -824,7 +780,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall29" index="1"]
@@ -850,7 +806,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall30" index="1"]
@@ -876,7 +832,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall31" index="1"]
@@ -902,7 +858,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall32" index="1"]
@@ -928,7 +884,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall33" index="1"]
@@ -954,7 +910,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall34" index="1"]
@@ -981,7 +937,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall35" index="1"]
@@ -1008,7 +964,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall36" index="1"]
@@ -1035,7 +991,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall37" index="1"]
@@ -1062,7 +1018,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall38" index="1"]
@@ -1089,7 +1045,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall39" index="1"]
@@ -1116,7 +1072,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall40" index="1"]
@@ -1143,7 +1099,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall41" index="1"]
@@ -1170,7 +1126,7 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall42" index="1"]
@@ -1197,12 +1153,56 @@ __meta__ = {
 
 position = Vector2( 0, -4.5 )
 scale = Vector2( 0.45, 0.45 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ambient/Wall43" index="1"]
 
 shape = SubResource( 2 )
+
+[node name="Jeremias" parent="." index="2" instance=ExtResource( 4 )]
+
+position = Vector2( 96, 128 )
+
+[node name="Metralheiro" type="KinematicBody2D" parent="." index="3"]
+
+position = Vector2( 888.435, 433.105 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 5 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="Metralheiro" index="0"]
+
+scale = Vector2( 0.12, 0.12 )
+texture = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Metralheiro" index="1"]
+
+position = Vector2( 11.4031, -2.44354 )
+shape = SubResource( 1 )
+
+[node name="BulletSpawner" type="Position2D" parent="Metralheiro" index="2"]
+
+position = Vector2( -68.1367, -18.7336 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Timer" type="Timer" parent="Metralheiro/BulletSpawner" index="0"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="TimerRajada" type="Timer" parent="Metralheiro/BulletSpawner" index="1"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
 
 [node name="PickableMetralha" parent="." index="4" instance=ExtResource( 7 )]
 
