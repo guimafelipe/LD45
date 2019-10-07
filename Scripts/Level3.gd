@@ -30,7 +30,7 @@ func recomecar():
 	$Fade.fade_out()
 
 func next_level():
-	get_tree().quit()
+	get_tree().change_scene("res://Menu.tscn")
 
 func same_level():
 	get_tree().change_scene("res://Levels/Level3.tscn")
