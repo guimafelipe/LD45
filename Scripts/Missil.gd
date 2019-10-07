@@ -7,16 +7,22 @@ var player
 const ROTATION_SPEED = 0.7
 const LIFE_TIME = 8
 
+var player_morreu = false
+
 func _ready():
 	$LifeTimer.set_wait_time(LIFE_TIME)
 	$LifeTimer.start()
 	player = get_node("../../Jeremias")
+	if player:
+		player.connect("morri", self, "matou_player")
+	else:
+		player_morreu = true
 
 func set_dir(dir):
 	velocity = dir*SPEED
 
 func update_dir(delta):
-	if not player:
+	if player_morreu:
 		return
 	var direction = player.global_position - global_position
 	var angle = velocity.angle_to(direction)
@@ -27,6 +33,7 @@ func update_dir(delta):
 
 func _physics_process(delta):
 	update_dir(delta)
+	rotation = velocity.angle()
 	translate(velocity*delta)
 
 func explode():
@@ -43,6 +50,8 @@ func _on_Missil_area_entered(area):
 	if area.name == "Bullet":
 		explode()
 
+func matou_player():
+	player_morreu = true
 
 func _on_Missil_body_entered(body):
 	explode()
