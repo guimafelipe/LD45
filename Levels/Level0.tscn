@@ -90,6 +90,8 @@ shape = SubResource( 2 )
 
 [node name="Wall8" type="Node" parent="." index="6"]
 
+editor/display_folded = true
+
 [node name="Wall" parent="Wall8" index="0" instance=ExtResource( 9 )]
 
 position = Vector2( 992, 512 )
@@ -201,7 +203,6 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Fade" parent="." index="7" instance=ExtResource( 10 )]
 
-visible = false
 stretch_mode = 0
 
 [connection signal="body_entered" from="FacaPickable" to="FacaPickable" method="_on_FacaPickable_body_entered"]

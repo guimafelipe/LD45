@@ -2,12 +2,12 @@ extends Node
 
 func _ready():
 	$Fade.fade_in()
-	$Jeremias.enable_faca()
+	#$Jeremias.enable_faca()
 	$Fade/Timer.connect("timeout", self, "comecar")
 	$Pistoleiro/Timer.start()
 
 func comecar():
-	$Jeremias.enable_faca()
+	#$Jeremias.enable_faca()
 	$Jeremias.can_move = true
 	$Pistoleiro.connect("morri", self, "finalizar")
 	$Jeremias.connect("morri", self, "recomecar")
