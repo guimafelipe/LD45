@@ -13,7 +13,7 @@
 custom_solver_bias = 0.0
 points = PoolVector2Array( 0, -10, 8.66025, 5, -8.66025, 5 )
 
-[node name="Level3" type="Node" index="0"]
+[node name="Level3" type="Node"]
 
 script = ExtResource( 1 )
 
