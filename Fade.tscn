@@ -3,7 +3,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Fade.gd" type="Script" id=2]
 
-[node name="Fade" type="TextureRect" index="0"]
+[node name="Fade" type="TextureRect"]
 
 modulate = Color( 0, 0, 0, 1 )
 anchor_left = 0.0
