@@ -1,22 +1,30 @@
 extends Node
 
+var ja_acabou = false
+
 func _ready():
 	$Fade.fade_in()
 #	$Jeremias.enable_metralhadora()
 	$Fade/Timer.connect("timeout", self, "comecar")
-	$Bazookeiro/Timer.start()
+	$JustForBullets/Bazookeiro/Timer.start()
 
 func comecar():
 	$Jeremias.can_move = true
-	$Bazookeiro.connect("morri", self, "finalizar")
+	$JustForBullets/Bazookeiro.connect("morri", self, "finalizar")
 	$Jeremias.connect("morri", self, "recomecar")
 
 func finalizar():
+	if ja_acabou:
+		return
+	ja_acabou = true
 	$Fade/Timer.disconnect("timeout", self, "comecar")
 	$Fade/Timer.connect("timeout", self, "next_level")
 	$Fade.fade_out()
 
 func recomecar():
+	if ja_acabou:
+		return
+	ja_acabou = true
 	$Fade/Timer.disconnect("timeout", self, "comecar")
 	$Fade/Timer.connect("timeout", self, "same_level")
 	$Fade.fade_out()

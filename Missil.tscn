@@ -11,7 +11,7 @@ radius = 10.0
 [sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
-radius = 51.1901
+radius = 15.0731
 
 [node name="Missil" type="Area2D"]
 
@@ -31,11 +31,10 @@ position = Vector2( -4.87677, 27.3098 )
 rotation = 3.14159
 scale = Vector2( 0.12, 0.12 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-visible = false
 shape = SubResource( 1 )
 
 [node name="LifeTimer" type="Timer" parent="." index="2"]
@@ -47,7 +46,6 @@ autostart = false
 
 [node name="ExplosionArea" type="Area2D" parent="." index="3"]
 
-visible = false
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
