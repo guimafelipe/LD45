@@ -9,6 +9,7 @@ func set_dir(dir):
 
 func _physics_process(delta):
 	translate(velocity*delta)
+	rotation = velocity.angle()
 
 func set_origin_is_player():
 	origin_is_player = true
